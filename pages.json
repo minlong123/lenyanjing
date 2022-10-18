@@ -1,0 +1,91 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/cate/index",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/discuss/index",
+			"style": {
+				"navigationBarTitleText": "反馈",
+				"enablePullDownRefresh":true
+			}
+		},{
+			"path": "pages/detail/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		}, {
+			"path": "pages/detailtwo/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},{
+			"path": "pages/childrenlist/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		}, {
+			"path": "pages/souceart/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		}
+
+
+    ],
+	"tabBar": {
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"selectedIconPath": "static/icons/message1.png",
+				"iconPath": "static/icons/message.png"
+			},
+			{
+				"pagePath": "pages/cate/index",
+				"text": "分类",
+				"selectedIconPath": "./static/icons/qs1.png",
+				"iconPath": "static/icons/qs.png"
+			},
+			{
+				"pagePath": "pages/discuss/index",
+				"text": "反馈",
+				"selectedIconPath": "./static/icons/user1.png",
+				"iconPath": "static/icons/user.png"
+			}
+		],
+		"color": "#959699",
+		"selectedColor": "#333333",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"fontSize": "12px",
+		"iconWidth": "22px"
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}
