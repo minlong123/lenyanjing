@@ -78,41 +78,7 @@ Vue.mixin({
 
 	}
 	  
-	let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
-	if(routes.length == 0){
-		return;
-	}
-	let curRoute = routes[routes.length - 1].route // 获取当前页面路由，也就是最后一个打开的页面路由
-	// console.log(curRoute);
-	if(curRoute != "pages/ContractShare/ContractShare"){
-	
-		// 验证登录的页面
-		let stoken=uni.getStorageSync("token");
-		if(stoken){
-			verifyToken().then((res) => {
-				// 过期了就删除掉过期的token和缓存数据
-				if(res.code == 200){
-					
-					if(!res.data){
-						uni.removeStorageSync('token');
-						uni.removeStorageSync('userinfo');
-						
-						// 都跳到首页去
-						wx.switchTab({
-						  url: '/pages/message/message'
-						})
-						
-					}
-				}
-			})
-		}else{
-			wx.switchTab({
-			  url: '/pages/message/message'
-			})
-		}
-		
-		
-	}
+
 	
 
 	
