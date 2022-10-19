@@ -31,11 +31,15 @@
 		
 		<u-button @click="show = true">点我查看楞严经译文：{{titles}}</u-button>
 		
+		
+		
 	</view>
 
 		<view class="lenyanjin">
 			<view class="len-title">
+			
 			<text class="len-title-one">{{titles}}</text>
+			
 			<u-tag text="查看原文" @click="swittabs" plain size="mini" type="success">
 				
 			</u-tag>
@@ -62,7 +66,7 @@
 <script>
 	
 
-import { allcontents } from "../../basedata/data";
+import { allcontents } from "../../basedata/indeddata";
 import { yiwendata } from "../../basedata/index";
 
 
@@ -90,7 +94,6 @@ export default {
 		oldcontent:"",
 		id:11,
 		type:1,
-		isread:true
     }
   },
   computed: {
@@ -100,67 +103,28 @@ export default {
   },
 	onPageScroll(e) {
 		this.scrollTop = e.scrollTop;
-
-		if(this.isread){
-			uni.setStorage({
-				key:"readaddress"+String(this.id),
-				data:e.scrollTop
-			})
-		}else{
-			this.setReadAddress();
-		}
 	},
   onShow() {
 	  
  
   },
+	//分享功能
+	onShareAppMessage: function (options) {
+
+		let that = this;
+		var shareBackUrl = 'pages/index/index';
+		return {
+			title:"楞严经修行",
+			path: shareBackUrl,
+			success: function(res) {
+				console.log(res, "转发成功")
+			},
+		}
+	},
   onLoad(){
-	this.isread=false;
-	this.setReadAddress();
+
   },
   methods: {
-	setReadAddress(){
-
-		let that=this;
-		that.isread=true;
-		uni.getStorage({
-			key:"readaddress"+String(that.id),
-			success:function(res){
-				
-				let readaddre=res.data;
-				
-				if(readaddre != null && readaddre != "" && readaddre != undefined && readaddre > 650){
-				
-					uni.showModal({
-						title: "提示",
-						content: "是否回到上一次阅读的地方",
-						success: function (res) {
-							if (res.confirm) {
-
-								uni.pageScrollTo({
-									scrollTop:readaddre, //距离页面顶部的距离
-									duration:500
-
-								});
-						
-
-							} else if (res.cancel) {
-								
-					
-								
-							}
-						},
-					});
-
-
-				}
-
-			}
-		});
-
-
-
-	},
 	swittabs(){
 		uni.navigateTo({
 			url: '/pages/souceart/index?id='+this.id+"&title="+this.titless
@@ -179,8 +143,7 @@ export default {
 		}else{
 			this.contents=selectinfo.contents;
 		}
-		this.isread=false;
-		this.setReadAddress();
+
 	},
 	
 	closeper() {

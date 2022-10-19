@@ -1,6 +1,6 @@
 <template>
 	<view class="footers">
-		网站部分内容转载自网络，如有侵犯到原作者相关权益，请联系我们，将及时处理。邮箱：minlongdemeng@163.com
+		网站部分内容转载自网络，如有侵犯到原作者相关权益，请联系我们，将及时处理。邮箱：minlongdemeng@gmail.com
 	</view>
 </template>
 

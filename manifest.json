@@ -79,11 +79,15 @@
         "setting" : {
             "urlCheck" : false,
             "es6" : true,
-            "postcss" : true
+            "postcss" : true,
+            "minified" : false
         },
         "usingComponents" : true,
         "uniStatistics" : {
             "enable" : false
+        },
+        "optimization" : {
+            "subPackages" : true
         }
     },
     "mp-alipay" : {

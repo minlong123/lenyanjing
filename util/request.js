@@ -122,7 +122,7 @@ const fetch = {
           }
           if (res.data.code === 4001) {
             uni.reLaunch({
-              url: "/pages/message/message",
+              url: "/pages/index/index",
             });
           }
         },
@@ -202,7 +202,7 @@ const fetch = {
           }
           if (res.statusCode === 401) {
             uni.reLaunch({
-              url: "/pages/message/message",
+              url: "/pages/index/index",
             });
           }
         },

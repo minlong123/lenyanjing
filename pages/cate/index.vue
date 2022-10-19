@@ -22,7 +22,7 @@
 			@change="keychange"
 			height="70" 
 			shape="round" 
-			actionText="" 
+			actionText="搜索" 
 			v-model="keyword">
 			</u-search>
 		</view>
@@ -66,18 +66,24 @@
 	},
 	onShow() {
 	},
+	//分享功能
+	onShareAppMessage: function (options) {
+		console.log(options);
+		let that = this;
+		var shareBackUrl = 'pages/cate/index'
+		return {
+			title:"楞严经修行-文章分类",
+			path: shareBackUrl,
+			success: function(res) {
+				console.log(res, "转发成功")
+			},
+		}
+	},
 	onLoad(){
 	  this.getDatas();
 	},
 	methods: {
 		visitcon(id,name,statu){
-
-			if(id > 20){
-				uni.navigateTo({
-					url: '/pages/detailtwo/index?id='+id+"&title="+name
-				});
-				return;
-			}
 			// 跳转页面
 			if(statu){
 				uni.navigateTo({
@@ -85,7 +91,7 @@
 				});
 			}else{
 				uni.navigateTo({
-					url: '/pages/detail/index?id='+id+"&title="+name
+					url: '/template/detail/index?id='+id+"&title="+name
 				});
 			}
 

@@ -48,21 +48,6 @@ let alllist=[
         id:10,
         title:"楞严经全文多少字",
 		children:false
-    },
-    {
-        id:21,
-        title:"《楞严咒》注音版",
-		children:false
-    },
-    {
-        id:22,
-        title:"金刚经原文全文",
-		children:false
-    },
-    {
-        id:23,
-        title:"金刚经译文",
-		children:false
     }
 ]
 

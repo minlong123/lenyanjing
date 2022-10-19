@@ -16,22 +16,6 @@
 				"navigationStyle": "custom"
 			}
 		}, {
-			"path": "pages/discuss/index",
-			"style": {
-				"navigationBarTitleText": "反馈",
-				"enablePullDownRefresh":true
-			}
-		},{
-			"path": "pages/detail/index",
-			"style": {
-				"navigationBarTitleText": "详情"
-			}
-		}, {
-			"path": "pages/detailtwo/index",
-			"style": {
-				"navigationBarTitleText": "详情"
-			}
-		},{
 			"path": "pages/childrenlist/index",
 			"style": {
 				"navigationBarTitleText": "详情"
@@ -45,6 +29,15 @@
 
 
     ],
+	"subPackages": [{
+		"root": "template",
+		"pages": [{
+			"path": "detail/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		}]
+	}],
 	"tabBar": {
 		"list": [{
 				"pagePath": "pages/index/index",
@@ -57,12 +50,6 @@
 				"text": "分类",
 				"selectedIconPath": "./static/icons/qs1.png",
 				"iconPath": "static/icons/qs.png"
-			},
-			{
-				"pagePath": "pages/discuss/index",
-				"text": "反馈",
-				"selectedIconPath": "./static/icons/user1.png",
-				"iconPath": "static/icons/user.png"
 			}
 		],
 		"color": "#959699",

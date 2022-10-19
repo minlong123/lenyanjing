@@ -39,22 +39,26 @@
 	},
 	onShow() {
 	},
+	//分享功能
+	onShareAppMessage: function (options) {
+		console.log(options);
+		let that = this;
+		var shareBackUrl = 'pages/childrenlist/index?id='+this.id+"&title="+this.name
+		return {
+			title:that.name,
+			path: shareBackUrl,
+			success: function(res) {
+				console.log(res, "转发成功")
+			},
+		}
+	},
 	onLoad(options){
 		
 	  this.id=options.id;
 	  this.name=options.title;
 	  this.resdatas=this.allcatedata[options.id];
 		uni.setNavigationBarTitle({
-			title: options.title,
-			success: () => {
-				console.log('修改标题成功')
-			},
-			fail: () => {
-				console.log('修改标题失败')
-			},
-			complete: () => {
-				console.log('修改标题结束')
-			},
+			title: options.title
 		})
 	  
 	},
@@ -62,7 +66,7 @@
 		visitcon(id,name){
 			// 跳转页面
 			uni.navigateTo({
-				url: '../detail/index?id='+id+"&title="+name
+				url: '/template/detail/index?id='+id+"&title="+name
 			});
 		},
 		getDatas(){

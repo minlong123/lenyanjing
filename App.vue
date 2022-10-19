@@ -29,7 +29,6 @@ export default {
 	
 /*每个页面公共css */
 @import "uview-ui/index.scss";
-@import url("./static/fonts/iconfont.css");
 
 body {
   font-family: PingFang SC, PingFang SC-Bold;

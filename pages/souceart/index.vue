@@ -19,7 +19,7 @@
   
   <script>
 
-import { allcontents } from "../../basedata/data";
+import { allcontents } from "../../basedata/indeddata";
 import { yiwendata } from "../../basedata/index";
 import footerinfo from "@/components/footerinfo.vue"
 
@@ -32,8 +32,7 @@ import footerinfo from "@/components/footerinfo.vue"
 		name:"",
 		alldata:yiwendata,
 		oldcontents:allcontents[1],
-		apiata:allcontents,
-		content:"",
+		content:"<div>加载中……</div>",
 		scrollTop: 0,
 		mode: 'circle',
 		iconStyle: {
@@ -50,6 +49,19 @@ import footerinfo from "@/components/footerinfo.vue"
 	},
 	onPageScroll(e) {
 		this.scrollTop = e.scrollTop;
+	},
+	//分享功能
+	onShareAppMessage: function (options) {
+		console.log(options);
+		let that = this;
+		var shareBackUrl = 'pages/souceart/index?id='+this.id+"&title="+this.name
+		return {
+			title:that.name,
+			path: shareBackUrl,
+			success: function(res) {
+				console.log(res, "转发成功")
+			},
+		}
 	},
 	created() {
 	},
