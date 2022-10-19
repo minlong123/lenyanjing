@@ -8,4 +8,4 @@ WEB站点：[楞严经web站点](https://minlong123.github.io/lenyanjing-web.git
 
 ### 1、该项目使用的框架
 
-使用了uniapp/uview进行了开发，所有数据均无需联网，都在数据文件当中。下载APP后可断网浏览佛经学习。
+使用了uniapp/uview进行了开发，所有数据均无需联网，都在数据文件当中。下载APP后可断网浏览佛经学习。已打包了安卓APP，iosAPP可自行打包下载至手机使用。
