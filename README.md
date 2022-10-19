@@ -5,3 +5,7 @@
 WEB站点：[楞严经web站点](https://minlong123.github.io/lenyanjing-web.github.io/)
 
 安卓APP下载地址：[楞严经安卓APP](https://minlong123.github.io/lenyanjing-web.github.io/mobile.html)
+
+### 1、该项目使用的框架
+
+使用了uniapp/uview进行了开发，所有数据均无需联网，都在数据文件当中。
