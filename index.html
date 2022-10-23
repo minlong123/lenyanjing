@@ -16,5 +16,21 @@
   <body>
     <div id="app"><!--app-html--></div>
     <script type="module" src="/main.js"></script>
+	<script>
+		document.addEventListener( "plusready", function(){
+		  var pinf = plus.push.getClientInfo();  
+		  var cid = pinf.clientid;//客户端标识
+		  console.log(cid) // app的CID
+		  message = document.getElementById("message");
+		    // 监听点击消息事件
+		    plus.push.addEventListener( "click", function( msg ) {
+		      console.log(msg)                     
+		    }, false );
+		    // 监听在线消息事件
+		    plus.push.addEventListener( "receive", function( msg ) {
+		       console.log(msg)
+		   }, false );
+		}, false );
+	</script>
   </body>
 </html>

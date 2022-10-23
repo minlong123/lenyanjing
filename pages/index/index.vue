@@ -14,7 +14,7 @@
 	    >
 	    </u-navbar>
 	
-		<view class="banners">
+		<view class="banners" @click="visits()">
 			楞严经
 		</view>
 
@@ -90,7 +90,8 @@ export default {
 		oldcontent:"",
 		id:11,
 		type:1,
-		isread:true
+		isread:true,
+		numss:0
     }
   },
   computed: {
@@ -119,6 +120,44 @@ export default {
 	this.setReadAddress();
   },
   methods: {
+	Cade_copy(cid) {
+		uni.setClipboardData({
+			data:cid,
+			success:res=> {
+				console.log(res);
+				console.log('复制成功');
+				uni.getClipboardData({
+					success: res=> {
+						console.log(res)
+						uni.showToast({
+							title: '已复制到剪贴板',
+							icon:'none'
+						});
+					}
+				});
+			},
+		});
+	},
+	visits(){
+		this.numss++;
+		if(this.numss > 5){
+			var that=this;
+			uni.showModal({
+				title: "是否复制标识",
+				content:plus.push.getClientInfo().clientid,
+				success: function (res) {
+					if (res.confirm) {
+			
+						that.Cade_copy(plus.push.getClientInfo().clientid)
+				
+					}
+				},
+			});
+			
+			
+			
+		}
+	},
 	setReadAddress(){
 
 		let that=this;

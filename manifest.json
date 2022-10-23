@@ -18,13 +18,17 @@
             "delay" : 0
         },
         /* 模块配置 */
-        "modules" : {},
+        "modules" : {
+            "Push" : {}
+        },
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */
             "android" : {
-                "permissions" : [],
-                "autoSdkPermissions" : false
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.BIND_CARRIER_MESSAGING_SERVICE\"/>"
+                ],
+                "autoSdkPermissions" : true
             },
             /* ios打包配置 */
             "ios" : {
@@ -32,7 +36,13 @@
             },
             /* SDK配置 */
             "sdkConfigs" : {
-                "ad" : {}
+                "ad" : {},
+                "push" : {
+                    "unipush" : {
+                        "offline" : false
+                    }
+                },
+                "share" : {}
             },
             "icons" : {
                 "android" : {
