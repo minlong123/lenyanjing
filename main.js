@@ -12,6 +12,10 @@ Vue.prototype.$store = store
 Vue.config.productionTip = false
 App.mpType = "app"
 
+
+
+
+
 Vue.mixin({
   data() {
     return {}

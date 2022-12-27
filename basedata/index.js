@@ -14,14 +14,15 @@ let alllist=[
         title:"楞严经注音版",
 		children:true
     },
+    
     {
         id:4,
-        title:" 楞严经和楞严咒有什么区别",
+        title:"秽迹金刚咒",
 		children:false
     },
     {
         id:5,
-        title:"南怀瑾说楞严经是伪经？",
+        title:"六字大明咒",
 		children:false
     },
     {
@@ -31,24 +32,24 @@ let alllist=[
     },
     {
         id:7,
-        title:"《楞严经》跟《法华经》有什么不同",
+        title:"taiguanglin著作《坐禅之问答录》",
 		children:false
     },
-    {
-        id:8,
-        title:"如何修持楞严经",
-		children:false
-    },
-    {
-        id:9,
-        title:"楞严经大致在讲什么？",
-		children:false
-    },
-    {
-        id:10,
-        title:"楞严经全文多少字",
-		children:false
-    },
+    // {
+    //     id:8,
+    //     title:"如何修持楞严经",
+	// 	children:false
+    // },
+    // {
+    //     id:9,
+    //     title:"楞严经大致在讲什么？",
+	// 	children:false
+    // },
+    // {
+    //     id:10,
+    //     title:"楞严经全文多少字",
+	// 	children:false
+    // },
     {
         id:21,
         title:"《楞严咒》注音版",
@@ -63,8 +64,14 @@ let alllist=[
         id:23,
         title:"金刚经译文",
 		children:false
+    },
+    {
+        id:24,
+        title:"下期更新",
+		children:false
     }
 ]
+
 
 let yiwen=[
     {

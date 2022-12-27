@@ -5,6 +5,24 @@
 			
 		</view>
 		
+		<view class="playlenyan" 
+		v-if="isplaylenyan" 
+		@click="playlenyan">
+			<u-image
+			ref="uImage"
+			:lazy-load="true"
+			:src="videoimg"
+			mode="aspectFill"
+			height="96"
+			width="94"
+			shape="circle"
+			>
+			<u-loading-icon size="20" slot="loading"></u-loading-icon>
+			</u-image>
+		</view>
+
+
+
 		<footerinfo></footerinfo>
 		
 	<u-back-top
@@ -30,7 +48,11 @@ import footerinfo from "@/components/footerinfo.vue"
 		id:"",
 		name:"",
 		alldata:[],
+		isplaylenyan:false,
 		apiata:allcontents,
+		videoimg:require("../../static/icons/music.png"),
+		lenyanmp3:require("../../basedata/lenyanzou.mp3"),
+		lenmusic:null,
 		content:"加载中……",
 		scrollTop: 0,
 		mode: 'circle',
@@ -61,6 +83,12 @@ import footerinfo from "@/components/footerinfo.vue"
 		}
 		
 	},
+	onUnload(){
+		if(this.lenmusic){
+			this.lenmusic.pause();
+			this.lenmusic=null;
+		}
+	},
 	created() {
 	},
 	onShow() {
@@ -74,8 +102,29 @@ import footerinfo from "@/components/footerinfo.vue"
 		})
 		this.isread=false;
 		this.setReadAddress();
+
+		if(options.id == 21){
+			this.isplaylenyan=true;
+		}
+
 	},
 	methods: {
+		playlenyan(){
+			// 开始播放音频
+			if(this.lenmusic != null){
+				this.lenmusic.pause();
+				this.lenmusic=null;
+				return;
+			}
+			this.lenmusic = uni.createInnerAudioContext(); //创建播放器对象
+			this.lenmusic.src =this.lenyanmp3;
+			this.lenmusic.play(); //执行播放
+			var that=this;
+			this.lenmusic.onEnded(() => {
+				//播放结束
+				that.lenmusic = null;
+			})
+		},
 	  setReadAddress(){
 	  
 		let that=this;
@@ -141,7 +190,27 @@ import footerinfo from "@/components/footerinfo.vue"
 		margin:60rpx auto;
 		
 	}
-  
+	@keyframes btnRotate{
+        from{transform: rotateZ(0);}
+        to{transform: rotateZ(360deg);}
+    }
+    .isanimate{
+	animation:btnRotate infinite linear 2s
+  }
+  .playlenyan{
+	position:fixed;
+	top:180rpx;
+	right:80rpx;
+	z-index:999999999999;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	margin-bottom:20rpx;
+    transform-origin: center center;
+  }
+
+
   
   </style>
   
