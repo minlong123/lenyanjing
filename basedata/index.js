@@ -1,3 +1,4 @@
+// html压缩网站：https://c.runoob.com/front-end/47/
 let alllist=[
     {
         id:1,
@@ -35,16 +36,16 @@ let alllist=[
         title:"taiguanglin著作《坐禅之问答录》",
 		children:false
     },
-    // {
-    //     id:8,
-    //     title:"如何修持楞严经",
-	// 	children:false
-    // },
-    // {
-    //     id:9,
-    //     title:"楞严经大致在讲什么？",
-	// 	children:false
-    // },
+    {
+        id:8,
+        title:"大悲咒全文",
+		children:false
+    },
+    {
+        id:9,
+        title:"十小咒注音",
+		children:false
+    },
     // {
     //     id:10,
     //     title:"楞严经全文多少字",
