@@ -32,6 +32,37 @@
 			</u-image>
 		</view>
 
+		<view class="playdabei" 
+		v-if="isplaydabei" 
+		@click="startplaydabei">
+			<u-image
+			ref="uImage"
+			:lazy-load="true"
+			:src="videoimg"
+			mode="aspectFill"
+			height="96"
+			width="94"
+			shape="circle"
+			>
+			<u-loading-icon size="20" slot="loading"></u-loading-icon>
+			</u-image>
+		</view>
+
+		<view class="playshixiao" 
+		v-if="isplayshixiao" 
+		@click="startplayshixiao">
+			<u-image
+			ref="uImage"
+			:lazy-load="true"
+			:src="videoimg"
+			mode="aspectFill"
+			height="96"
+			width="94"
+			shape="circle"
+			>
+			<u-loading-icon size="20" slot="loading"></u-loading-icon>
+			</u-image>
+		</view>
 
 
 		
@@ -63,6 +94,12 @@ import footerinfo from "@/components/footerinfo.vue"
 		name:"",
 		alldata:[],
 		isplay:false,
+		dabeimusic:null,
+		isplaydabei:false,
+		dabeimp3:require("../../basedata/dabeizou.mp3"),
+		shixiaomusic:null,
+		isplayshixiao:false,
+		shixiaomp3:require("../../basedata/shixiaozou.mp3"),
 		videoimg:require("../../static/icons/music.png"),
 		audiomp3:require("../../basedata/audio.mp3"),
 		pdf12:"https://zaiercommon.oss-cn-beijing.aliyuncs.com/123.pdf",
@@ -107,7 +144,14 @@ import footerinfo from "@/components/footerinfo.vue"
 			this.music.pause();
 			this.music=null;
 		}
-
+		if(this.dabeimusic){
+			this.dabeimusic.pause();
+			this.dabeimusic=null;
+		}
+		if(this.shixiaomusic){
+			this.shixiaomusic.pause();
+			this.shixiaomusic=null;
+		}
 	},
 	onShow() {
 	},
@@ -129,6 +173,14 @@ import footerinfo from "@/components/footerinfo.vue"
 		if(options.id == 7){
 			this.openpdf=true;
 		}
+		if(options.id == 8){
+			this.isplaydabei=true;
+		}
+		if(options.id == 9){
+			this.isplayshixiao=true;
+		}
+
+
 
 	},
 	methods: {
@@ -150,6 +202,38 @@ import footerinfo from "@/components/footerinfo.vue"
 				}
 			});
 
+		},
+		startplayshixiao(){
+			// 开始播放音频
+			if(this.shixiaomusic != null){
+				this.shixiaomusic.pause();
+				this.shixiaomusic=null;
+				return;
+			}
+			this.shixiaomusic = uni.createInnerAudioContext(); //创建播放器对象
+			this.shixiaomusic.src =this.shixiaomp3;
+			this.shixiaomusic.play(); //执行播放
+			var that=this;
+			this.shixiaomusic.onEnded(() => {
+				//播放结束
+				that.shixiaomusic = null;
+			})
+		},
+		startplaydabei(){
+			// 开始播放音频
+			if(this.dabeimusic != null){
+				this.dabeimusic.pause();
+				this.dabeimusic=null;
+				return;
+			}
+			this.dabeimusic = uni.createInnerAudioContext(); //创建播放器对象
+			this.dabeimusic.src =this.dabeimp3;
+			this.dabeimusic.play(); //执行播放
+			var that=this;
+			this.dabeimusic.onEnded(() => {
+				//播放结束
+				that.dabeimusic = null;
+			})
 		},
 		startplay(){
 			// 开始播放音频
@@ -253,7 +337,30 @@ import footerinfo from "@/components/footerinfo.vue"
 	margin:0 auto;
 	margin-bottom:30rpx;
 }
-
+.playdabei{
+	position:fixed;
+	top:180rpx;
+	right:80rpx;
+	z-index:999999999999;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	margin-bottom:20rpx;
+    transform-origin: center center;
+  }
+  .playshixiao{
+	position:fixed;
+	top:180rpx;
+	right:80rpx;
+	z-index:999999999999;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	margin-bottom:20rpx;
+    transform-origin: center center;
+  }
   
   </style>
   
