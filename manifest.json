@@ -2,8 +2,8 @@
     "name" : "楞严经",
     "appid" : "__UNI__59D382E",
     "description" : "学习楞严经",
-    "versionName" : "1.0.9",
-    "versionCode" : 501,
+    "versionName" : "1.1.0",
+    "versionCode" : 503,
     "transformPx" : false,
     /* 5+App特有相关 */
     "preferedAppPlatform" : "app-plus",

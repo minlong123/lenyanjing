@@ -46,11 +46,11 @@ let alllist=[
         title:"十小咒注音",
 		children:false
     },
-    // {
-    //     id:10,
-    //     title:"楞严经全文多少字",
-	// 	children:false
-    // },
+    {
+        id:10,
+        title:"尊胜咒",
+		children:false
+    },
     {
         id:21,
         title:"《楞严咒》注音版",
