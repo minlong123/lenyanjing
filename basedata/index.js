@@ -68,6 +68,26 @@ let alllist=[
     },
     {
         id:24,
+        title:"八十八佛大忏悔文",
+		children:false
+    },
+    {
+        id:25,
+        title:"心经",
+		children:false
+    },
+    {
+        id:26,
+        title:"普贤菩萨十大愿王",
+		children:false
+    },
+    {
+        id:27,
+        title:"西方极乐世界游记",
+		children:false
+    },
+    {
+        id:28,
         title:"下期更新",
 		children:false
     }

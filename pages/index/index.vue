@@ -153,9 +153,6 @@ export default {
 					}
 				},
 			});
-			
-			
-			
 		}
 	},
 	setReadAddress(){

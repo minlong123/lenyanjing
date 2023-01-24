@@ -18,7 +18,8 @@
 		}, {
 			"path": "pages/discuss/index",
 			"style": {
-				"navigationBarTitleText": "反馈",
+				"navigationBarTitleText": "更多",
+				"navigationStyle": "custom",
 				"enablePullDownRefresh":true
 			}
 		},{
@@ -41,6 +42,11 @@
 			"style": {
 				"navigationBarTitleText": "详情"
 			}
+		},{
+			"path": "pages/moreinfo/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
 		}
 
 
@@ -60,9 +66,9 @@
 			},
 			{
 				"pagePath": "pages/discuss/index",
-				"text": "反馈",
-				"selectedIconPath": "./static/icons/user1.png",
-				"iconPath": "static/icons/user.png"
+				"text": "更多",
+				"selectedIconPath": "./static/icons/qs1.png",
+				"iconPath": "static/icons/qs.png"
 			}
 		],
 		"color": "#959699",
