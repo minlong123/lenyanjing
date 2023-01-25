@@ -6,10 +6,11 @@
 		</view>
 
 
-		<view class="openpdfb" @click="openpdfb" v-if="openpdf">
+		<view class="openpdfb" v-if="openpdf">
 			<view>手机请先移步至应用市场下载 WPS APP ，才能打开成功</view>
 			<br>
-			<u-button type="primary">打开PDF阅读</u-button>
+			<u-button type="primary" v-for="(item,index) in pdfdata" :key="item.id" @click="openpdfb(item.url)">{{item.title}}打开PDF阅读</u-button>
+		
 		</view>
 
 
@@ -102,7 +103,22 @@ import footerinfo from "@/components/footerinfo.vue"
 		shixiaomp3:require("../../basedata/shixiaozou.mp3"),
 		videoimg:require("../../static/icons/music.png"),
 		audiomp3:require("../../basedata/audio.mp3"),
-		pdf12:"https://zaiercommon.oss-cn-beijing.aliyuncs.com/123.pdf",
+		pdfdata:[{
+			'id':1,
+			'title':"《坐禅之问答录》",
+			'url':"https://zaiercommon.oss-cn-beijing.aliyuncs.com/123.pdf",
+		
+		},{
+			'id':2,
+			'title':"坐禅之问答录-正文",
+			'url':"https://zaiercommon.oss-cn-beijing.aliyuncs.com/456.pdf",
+		
+		},{
+			'id':3,
+			'title':"坐禅-正文",
+			'url':"https://zaiercommon.oss-cn-beijing.aliyuncs.com/789.pdf",
+		
+		}],
 		apiata:allcontents,
 		content:"",
 		scrollTop: 0,
@@ -184,11 +200,11 @@ import footerinfo from "@/components/footerinfo.vue"
 
 	},
 	methods: {
-		openpdfb(){
+		openpdfb(url){
 
 			var that=this;
 			uni.downloadFile({
-				url:that.pdf12,
+				url:url,
 				success: (res) => {
 					if (res.statusCode === 200) {
 						uni.openDocument({
@@ -336,6 +352,9 @@ import footerinfo from "@/components/footerinfo.vue"
 	width:80%;
 	margin:0 auto;
 	margin-bottom:30rpx;
+	button{
+		margin-bottom:20rpx;
+	}
 }
 .playdabei{
 	position:fixed;

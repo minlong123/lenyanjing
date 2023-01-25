@@ -33,7 +33,7 @@ let alllist=[
     },
     {
         id:7,
-        title:"taiguanglin著作《坐禅之问答录》",
+        title:"taiguanglin著作",
 		children:false
     },
     {
