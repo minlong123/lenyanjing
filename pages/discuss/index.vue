@@ -135,6 +135,16 @@
         'title':'楞严经解读',
         'url':'http://www.skamrta.com/lengyanjing/645.html',
         'isread':true,
+      },{
+        'id':9,
+        'title':'宣化上人所有开示',
+        'url':'http://www.drbachinese.org/online_reading_simplified/index.htm',
+        'isread':true,
+      },{
+        'id':10,
+        'title':'无量寿经白话文',
+        'url':'https://www.maigoo.com/goomai/215921.html',
+        'isread':true,
       }],
 	  }
 	},
