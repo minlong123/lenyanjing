@@ -182,9 +182,9 @@ import footerinfo from "@/components/footerinfo.vue"
 		this.isread=false;
 		this.setReadAddress();
 
-		if(options.id == 4){
-			this.isplay=true;
-		}
+		// if(options.id == 4){
+		// 	this.isplay=true;
+		// }
 
 		if(options.id == 7){
 			this.openpdf=true;
