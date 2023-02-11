@@ -88,7 +88,12 @@ let alllist=[
     },
     {
         id:28,
-        title:"下期更新",
+        title:"宽恕祈祷文",
+		children:false
+    },
+    {
+        id:29,
+        title:"晨起发愿",
 		children:false
     }
 ]
