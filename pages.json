@@ -22,6 +22,11 @@
 				"navigationStyle": "custom",
 				"enablePullDownRefresh":true
 			}
+		}, {
+			"path": "pages/notes/index",
+			"style": {
+				"navigationBarTitleText": "五取蕴笔记"
+			}
 		},{
 			"path": "pages/detail/index",
 			"style": {
@@ -69,6 +74,12 @@
 				"text": "更多",
 				"selectedIconPath": "./static/icons/qs1.png",
 				"iconPath": "static/icons/qs.png"
+			},
+			{
+				"pagePath": "pages/notes/index",
+				"text": "笔记",
+				"selectedIconPath": "./static/icons/xz1.png",
+				"iconPath": "static/icons/xz.png"
 			}
 		],
 		"color": "#959699",

@@ -95,6 +95,11 @@ let alllist=[
         id:29,
         title:"晨起发愿",
 		children:false
+    },
+    {
+        id:30,
+        title:"因果明镜论",
+		children:false
     }
 ]
 

@@ -145,6 +145,46 @@
         'title':'无量寿经白话文',
         'url':'https://www.maigoo.com/goomai/215921.html',
         'isread':true,
+      },{
+        'id':11,
+        'title':'三十七佛子行',
+        'url':'https://www.taodocs.com/p-11311106.html',
+        'isread':true,
+      },{
+        'id':12,
+        'title':'入菩萨行论译本',
+        'url':'http://www.zmxh.com/bbs/viewthread.php?tid=6756',
+        'isread':true,
+      },{
+        'id':13,
+        'title':'元音老人资料',
+        'url':'http://fo163.com/category.aspx?NodeID=38',
+        'isread':true,
+      },{
+        'id':14,
+        'title':'广论',
+        'url':'http://read.goodweb.net.cn/news/news_view.asp?newsid=18223',
+        'isread':true,
+      },{
+        'id':15,
+        'title':'普贤菩萨行愿品',
+        'url':'https://www.xifangju.com/article-1540-1.html?ivk_sa=1024320u',
+        'isread':true,
+      },{
+        'id':16,
+        'title':'大念处经',
+        'url':'https://mp.weixin.qq.com/s?__biz=MzA4MDIxNjkwOQ==&mid=2649713219&idx=1&sn=0b916f4eacfa1c45aba2aa02f01a4d81&chksm=87bc5c61b0cbd577e8e278c9d5d4b645cca851ce3777201f7c4289bcf97ae84be470cb865de8&scene=27',
+        'isread':false,
+      },{
+        'id':17,
+        'title':'年龙上师非常重要的一个开示',
+        'url':'https://www.docin.com/p-603420216.html',
+        'isread':true,
+      },{
+        'id':18,
+        'title':'元音老人讲中阴闻教得度',
+        'url':'https://www.docin.com/p-2583363142.html',
+        'isread':true,
       }],
 	  }
 	},

@@ -10,8 +10,8 @@
 			<view>手机请先移步至应用市场下载 WPS APP ，才能打开成功</view>
 			<br>
 			<u-button type="primary" v-for="(item,index) in pdfdata" :key="item.id" @click="openpdfb(item.url)">{{item.title}}打开PDF阅读</u-button>
-		
 		</view>
+
 
 
 
@@ -132,7 +132,7 @@ import footerinfo from "@/components/footerinfo.vue"
 		},
 		isread:true,
 		music:null,
-		openpdf:false,
+		openpdf:false
 		
 	  }
 	},
@@ -195,6 +195,7 @@ import footerinfo from "@/components/footerinfo.vue"
 		if(options.id == 9){
 			this.isplayshixiao=true;
 		}
+		
 
 
 

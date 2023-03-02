@@ -4,6 +4,14 @@
 		<view class="contents" v-html="content">
 			
 		</view>
+
+		<view class="openpdfb" v-if="openyinguo">
+			<view>手机请先移步至应用市场下载 WPS APP ，才能打开成功</view>
+			<br>
+			<u-button type="primary" @click="openyinguoo()">因果明镜论</u-button>
+		</view>
+
+
 		
 		<view class="playlenyan" 
 		v-if="isplaylenyan" 
@@ -53,6 +61,7 @@ import footerinfo from "@/components/footerinfo.vue"
 		videoimg:require("../../static/icons/music.png"),
 		lenyanmp3:require("../../basedata/lenyanzou.mp3"),
 		lenmusic:null,
+		yinguourl:"https://zaiercommon.oss-cn-beijing.aliyuncs.com/yinguo.doc",
 		content:"加载中……",
 		scrollTop: 0,
 		mode: 'circle',
@@ -106,9 +115,31 @@ import footerinfo from "@/components/footerinfo.vue"
 		if(options.id == 21){
 			this.isplaylenyan=true;
 		}
+		if(options.id == 30){
+			this.openyinguo=true;
+		}
+
 
 	},
 	methods: {
+		openyinguoo(){
+
+			var that=this;
+			uni.downloadFile({
+				url:that.yinguourl,
+				success: (res) => {
+					if (res.statusCode === 200) {
+						uni.openDocument({
+							filePath: res.tempFilePath, 
+							// 如果文件名包含中文，建议使用escape(res.tempFilePath)转码，防止ios和安卓客户端导致的差异
+							success: function(res) {
+								console.log('打开文档成功');
+							}
+						});
+					}
+				}
+			});
+		},
 		playlenyan(){
 			// 开始播放音频
 			if(this.lenmusic != null){
@@ -125,6 +156,7 @@ import footerinfo from "@/components/footerinfo.vue"
 				that.lenmusic = null;
 			})
 		},
+
 	  setReadAddress(){
 	  
 		let that=this;
@@ -210,7 +242,14 @@ import footerinfo from "@/components/footerinfo.vue"
     transform-origin: center center;
   }
 
-
+  .openpdfb{
+	width:80%;
+	margin:0 auto;
+	margin-bottom:30rpx;
+	button{
+		margin-bottom:20rpx;
+	}
+}
   
   </style>
   

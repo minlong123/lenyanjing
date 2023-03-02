@@ -6,11 +6,11 @@ const fetch = {
   devUrl2: DEV_URL,
   devUrl3: UPLOAD_URL,
   toast: function (tips) {
-    uni.showToast({
-      title: tips || "出错啦~",
-      icon: "none",
-      duration: 2000,
-    });
+    // uni.showToast({
+    //   title: tips || "出错啦~",
+    //   icon: "none",
+    //   duration: 2000,
+    // });
   },
   getTokens:function(){
 	var that=this;
@@ -26,10 +26,10 @@ const fetch = {
 					uni.setStorageSync("userinfo",JSON.stringify(result.data.data));
 
 				}else{
-					wx.showToast({
-					  icon: 'none',
-					  title: '连接失败',
-					})
+					// wx.showToast({
+					//   icon: 'none',
+					//   title: '连接失败',
+					// })
 				}
 			})
 		}
@@ -44,10 +44,10 @@ const fetch = {
   }) {
     //接口请求
     if (showLoading) {
-      uni.showLoading({
-        mask: true,
-        title: "请稍候...",
-      });
+      // uni.showLoading({
+      //   mask: true,
+      //   title: "请稍候...",
+      // });
     }
     // let requestUrl = /*  fetch.devUrl2 + */ url;
 	
@@ -69,7 +69,7 @@ const fetch = {
           resolve(res.data);
         },
         fail: (res) => {
-          fetch.toast("网络错误，请稍后重试！");
+          // fetch.toast("网络错误，请稍后重试！");
           reject(res);
         },
         complete: (res) => {
@@ -80,7 +80,7 @@ const fetch = {
             case 204:
               break;
             case 4000:
-              fetch.toast("错误请求");
+              // fetch.toast("错误请求");
               break;
             case 401:
               uni.setStorageSync("token", "");
