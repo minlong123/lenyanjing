@@ -100,6 +100,11 @@ let alllist=[
         id:30,
         title:"因果明镜论",
 		children:false
+    },
+    {
+        id:31,
+        title:"四种清净明诲",
+		children:false
     }
 ]
 

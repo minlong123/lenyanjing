@@ -102,6 +102,7 @@ export default {
 			type: 1,
 			isread: true,
 			numss: 0,
+			dateweek:"",
 		}
 	},
 	computed: {
@@ -128,8 +129,8 @@ export default {
 	},
 	onLoad() {
 		this.isread = false;
-		this.setReadAddress();
-		console.log(this.getCuurentweek());
+		this.setReadAddress()
+		//console.log(this.getCuurentweek());
 
 
 	},
@@ -137,31 +138,74 @@ export default {
 		getCuurentweek() {
 			// 获取今天是这个月的哪一周
 			const now = new Date();
-			const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+			
+			// let year=now.getFullYear();
+			// let month=now.getMonth()+1;
+			// let currdate=now.getDate();
+			
+			let year=2023;
+			let month=7;
+			let currdate=2;
+			
+			
+			const firstDayOfMonth = new Date(year+"-"+month+"-1");
 			let weeks=firstDayOfMonth.getDay();
+			if(weeks == 0){
+				weeks=7
+			}
+			//console.log("这天是周几"+weeks)
 			let firstweekendday=1+(7-weeks);
 			let secondweek = firstweekendday+7;
-			let currdate=now.getDate();
-			if(currdate < firstweekendday){
-				return 1;
+			if( month < 10){
+				month = "0"+month;
+			}
+			let qiandata=year+"年"+month+"月 ";
+			
+			// 解决每月最后几天的判断问题,每年最后一个月的情况
+			const endday = new Date(year+"-"+month+"-"+currdate);
+			let endweeks=endday.getDay();
+			if(endweeks == 0){
+				endweeks=7
+			}
+			let endweekendday=1+(7-endweeks);
+			let dddd=new Date(year,month,0).getDate()
+			if(currdate+endweekendday > dddd){
+				month=parseInt(month)+1;
+				if(month > 12){
+					month=1;
+					year=year+1;
+				}
+				if(month < 10){
+					month = "0"+month;
+				}
+				qiandata=year+"年"+month+"月 ";
+				return qiandata+"第"+1+"周";
+			}
+			//console.log("当月有多少天"+dddd);
+			// 解决每月最后几天的判断问题
+			
+			if(currdate <= firstweekendday){
+				return qiandata+"第"+1+"周";
 			}
 			if(firstweekendday < currdate &&  currdate <= secondweek){
-				return 2;
+				return qiandata+"第"+2+"周";
 			}
 			if(secondweek < currdate &&  currdate <= secondweek+7){
-				return 3;
+				return qiandata+"第"+3+"周";
 			}
 			if(secondweek+7 < currdate &&  currdate <= secondweek+(7*2)){
-				return 4;
+				return qiandata+"第"+4+"周";
 			}
 			if(secondweek+(7*2) < currdate &&  currdate <= secondweek+(7*3)){
-				return 5;
+				return qiandata+"第"+5+"周";
 			}
 			if(secondweek+(7*3) < currdate &&  currdate <= secondweek+(7*4)){
-				return 6;
+				return qiandata+"第"+6+"周";
 			}
 		},
 		initweek() {
+			this.years=[];
+			this.months=[];
 			const date = new Date()
 			for (let i = 1990; i <= date.getFullYear(); i++) {
 				this.years.push(i)
@@ -179,14 +223,14 @@ export default {
 			this.startweek = false;
 		},
 		confirmweek() {
-			console.log(this.selectdayweek);
+			//console.log(this.selectdayweek);
 			let selectyear = this.years[this.selectdayweek[0]]
 			let selectmonth = this.months[this.selectdayweek[1]]
 			if (selectmonth < 10) {
 				selectmonth = "0" + selectmonth
 			}
 			let selectweek = this.weeks[this.selectdayweek[2]]
-			console.log(selectyear + "-" + selectmonth + " 第" + selectweek + "周")
+			//console.log(selectyear + "-" + selectmonth + " 第" + selectweek + "周")
 		},
 		openweek() {
 			this.startweek = !this.startweek;
@@ -194,17 +238,17 @@ export default {
 		bindChange: function (e) {
 			const val = e.detail.value
 			this.selectdayweek = val;
-			console.log(val);
+			//console.log(val);
 		},
 		Cade_copy(cid) {
 			uni.setClipboardData({
 				data: cid,
 				success: res => {
-					console.log(res);
-					console.log('复制成功');
+					//console.log(res);
+					//console.log('复制成功');
 					uni.getClipboardData({
 						success: res => {
-							console.log(res)
+							//console.log(res)
 							uni.showToast({
 								title: '已复制到剪贴板',
 								icon: 'none'
